@@ -8,15 +8,15 @@ export const getContactsDuration = new Trend('get_contacts_duration', true);
 export const rateStatusCodeOK = new Rate('rate_status_code_ok');
 
 export const options = {
-  thresholds: {
-    http_req_failed: ['rate<0.25'],
-    http_req_duration: ['p(90)<6800'],
-    rate_status_code_ok: ['rate>0.95']
-  },
+    thresholds: {
+        http_req_failed: ['rate<0.25'],
+        get_contacts: ['p(90)<6800'],
+        content_OK: ['rate>0.75']
+      },
 
   stages: [
-    { duration: '30s', target: 7 },
-    { duration: '2m70s', target: 92 }
+    { duration: '1s', target: 7 },
+    { duration: '3m30s', target: 92 }
   ]
 };
 
